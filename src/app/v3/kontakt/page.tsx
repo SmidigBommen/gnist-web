@@ -25,7 +25,7 @@ export default function V3KontaktPage() {
               <br />
               kaffe sammen.
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-v3-drift">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-v3-drift">
               Ingen forpliktelser — bare en ærlig samtale om utfordringene dine.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function V3KontaktPage() {
                 <h2 className="v3-serif text-2xl text-v3-heading">
                   Din kontakt
                 </h2>
-                <div className="mt-8 border-t border-v3-stone/30 pt-8">
+                <div className="mt-8 border-t border-v3-stone pt-8">
                   <div className="flex items-center gap-4">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-v3-linen">
                       <span className="v3-serif text-xl text-v3-heading">
@@ -117,7 +117,7 @@ export default function V3KontaktPage() {
                   </div>
                 </div>
 
-                <div className="mt-10 border-t border-v3-stone/30 pt-8">
+                <div className="mt-10 border-t border-v3-stone pt-8">
                   <p className="text-xs font-medium uppercase tracking-[0.2em] text-v3-drift">
                     Responstid
                   </p>

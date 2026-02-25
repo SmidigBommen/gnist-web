@@ -69,7 +69,7 @@ export default function V3OmGnistPage() {
       </section>
 
       {/* === VALUES: Simple list === */}
-      <section className="border-y border-v3-stone/30 bg-v3-paper py-24 md:py-32">
+      <section className="border-y border-v3-stone bg-v3-paper py-24 md:py-32">
         <Container>
           <div className="mx-auto max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-v3-moss">
@@ -78,7 +78,7 @@ export default function V3OmGnistPage() {
             <h2 className="mt-4 v3-serif text-3xl text-v3-heading">
               Det vi lever etter
             </h2>
-            <div className="mt-12 divide-y divide-v3-stone/30">
+            <div className="mt-12 divide-y divide-v3-stone">
               {values.map((value) => (
                 <div key={value.title} className="grid gap-4 py-8 md:grid-cols-[200px_1fr]">
                   <h3 className="text-lg font-medium text-v3-heading">{value.title}</h3>
@@ -105,7 +105,7 @@ export default function V3OmGnistPage() {
             </p>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {socialResponsibility.initiatives.map((init) => (
-                <div key={init.title} className="border-t border-v3-stone/30 pt-6">
+                <div key={init.title} className="border-t border-v3-stone pt-6">
                   <h3 className="text-sm font-medium text-v3-heading">{init.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-v3-drift">
                     {init.description}
@@ -124,7 +124,7 @@ export default function V3OmGnistPage() {
             <h2 className="v3-serif text-3xl text-v3-heading md:text-4xl">
               Bli en av oss
             </h2>
-            <p className="mt-4 text-v3-drift font-light">
+            <p className="mt-4 text-v3-drift">
               Er du en erfaren teknologileder som vil jobbe i et sterkt
               fagmiljø? Vi er alltid nysgjerrige på gode folk.
             </p>

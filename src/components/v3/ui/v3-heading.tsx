@@ -7,20 +7,25 @@ interface V3HeadingProps {
   className?: string;
 }
 
-const styles = {
+const sizeStyles = {
   h1: "text-4xl md:text-5xl lg:text-6xl",
   h2: "text-3xl md:text-4xl",
   h3: "text-2xl md:text-3xl",
   h4: "text-xl md:text-2xl",
 };
 
-export function V3Heading({ children, as: Tag = "h2", serif = false, className }: V3HeadingProps) {
+export function V3Heading({
+  children,
+  as: Tag = "h2",
+  serif = false,
+  className,
+}: V3HeadingProps) {
   return (
     <Tag
       className={cn(
         "tracking-tight text-v3-heading",
-        serif ? "v3-serif font-normal" : "font-body font-light",
-        styles[Tag],
+        serif ? "v3-serif font-normal" : "font-body font-semibold",
+        sizeStyles[Tag],
         className
       )}
     >

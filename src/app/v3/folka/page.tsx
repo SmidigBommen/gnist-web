@@ -25,7 +25,7 @@ export default function V3FolkaPage() {
               <br />
               gjør Gnist til Gnist.
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-v3-drift">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-v3-drift">
               {team.length} teknologiledere med bred kompetanse og én felles
               gnist for faget.
             </p>
@@ -38,7 +38,7 @@ export default function V3FolkaPage() {
       {/* === TEAM LIST: Clean, airy === */}
       <section className="bg-v3-snow py-16 md:py-24">
         <Container>
-          <div className="mx-auto max-w-3xl divide-y divide-v3-stone/30">
+          <div className="mx-auto max-w-3xl divide-y divide-v3-stone">
             {team.map((member) => (
               <V3TeamMemberCard key={member.id} member={member} />
             ))}
@@ -53,7 +53,7 @@ export default function V3FolkaPage() {
             <h2 className="v3-serif text-3xl text-v3-heading">
               Plass til deg?
             </h2>
-            <p className="mt-4 text-v3-drift font-light">
+            <p className="mt-4 text-v3-drift">
               Vi er alltid nysgjerrige på folk som brenner for faget sitt.
             </p>
             <V3Button href="/v3/kontakt" className="mt-10">

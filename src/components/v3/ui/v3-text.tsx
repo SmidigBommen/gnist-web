@@ -7,6 +7,12 @@ interface V3TextProps {
   as?: React.ElementType;
 }
 
+const variantStyles = {
+  default: "text-base text-v3-text",
+  muted: "text-base text-v3-drift",
+  large: "text-lg md:text-xl text-v3-drift",
+};
+
 export function V3Text({
   children,
   className,
@@ -15,13 +21,7 @@ export function V3Text({
 }: V3TextProps) {
   return (
     <Component
-      className={cn(
-        "leading-relaxed",
-        variant === "default" && "text-base text-v3-text",
-        variant === "muted" && "text-base text-v3-drift",
-        variant === "large" && "text-lg md:text-xl text-v3-drift font-light",
-        className
-      )}
+      className={cn("leading-relaxed", variantStyles[variant], className)}
     >
       {children}
     </Component>

@@ -5,7 +5,7 @@ import { company } from "@/data/company";
 
 export function V3Footer() {
   return (
-    <footer className="border-t border-v3-stone/30 bg-v3-paper">
+    <footer className="border-t border-v3-stone bg-v3-paper">
       <Container>
         <div className="grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -18,7 +18,7 @@ export function V3Footer() {
 
           {/* Tjenester */}
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-v3-drift">
+            <h3 className="mb-5 text-xs font-medium uppercase tracking-widest text-v3-drift">
               Tjenester
             </h3>
             <ul className="space-y-3">
@@ -26,7 +26,7 @@ export function V3Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-v3-text transition-colors duration-300 hover:text-v3-moss"
+                    className="text-sm text-v3-text transition-colors duration-200 hover:text-v3-moss"
                   >
                     {item.label}
                   </Link>
@@ -37,7 +37,7 @@ export function V3Footer() {
 
           {/* Selskap */}
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-v3-drift">
+            <h3 className="mb-5 text-xs font-medium uppercase tracking-widest text-v3-drift">
               Selskap
             </h3>
             <ul className="space-y-3">
@@ -45,7 +45,7 @@ export function V3Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-v3-text transition-colors duration-300 hover:text-v3-moss"
+                    className="text-sm text-v3-text transition-colors duration-200 hover:text-v3-moss"
                   >
                     {item.label}
                   </Link>
@@ -56,14 +56,14 @@ export function V3Footer() {
 
           {/* Kontakt */}
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-v3-drift">
+            <h3 className="mb-5 text-xs font-medium uppercase tracking-widest text-v3-drift">
               Kontakt
             </h3>
-            <ul className="space-y-3 text-sm text-v3-text">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href={`mailto:${company.email}`}
-                  className="transition-colors duration-300 hover:text-v3-moss"
+                  className="text-v3-text transition-colors duration-200 hover:text-v3-moss"
                 >
                   {company.email}
                 </a>
@@ -71,12 +71,12 @@ export function V3Footer() {
               <li>
                 <a
                   href={`tel:${company.phone}`}
-                  className="transition-colors duration-300 hover:text-v3-moss"
+                  className="text-v3-text transition-colors duration-200 hover:text-v3-moss"
                 >
                   {company.phone}
                 </a>
               </li>
-              <li className="text-v3-drift">
+              <li className="text-v3-drift leading-relaxed">
                 {company.address.street}
                 <br />
                 {company.address.postalCode} {company.address.city}
@@ -86,16 +86,17 @@ export function V3Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-v3-stone/30 py-8 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-v3-stone py-8 md:flex-row">
           <p className="text-xs text-v3-drift">
-            &copy; {new Date().getFullYear()} {company.name}
+            &copy; {new Date().getFullYear()} {company.name}. Org.nr{" "}
+            {company.orgNumber}
           </p>
           <div className="flex gap-6">
             {v3FooterNavigation.juridisk.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-v3-drift transition-colors hover:text-v3-text"
+                className="text-xs text-v3-drift transition-colors duration-200 hover:text-v3-text"
               >
                 {item.label}
               </Link>

@@ -11,18 +11,36 @@ type V3ButtonProps = {
   children: React.ReactNode;
 } & (
   | { href: string }
-  | (Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className"> & { href?: never })
+  | (Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className"> & {
+      href?: never;
+    })
 );
 
 const variantStyles: Record<V3ButtonVariant, string> = {
-  primary:
-    "bg-v3-heading text-v3-snow hover:bg-v3-text focus-visible:ring-v3-heading",
-  secondary:
-    "bg-v3-moss text-white hover:bg-v3-moss/90 focus-visible:ring-v3-moss",
-  outline:
-    "border border-v3-stone text-v3-text hover:bg-v3-linen focus-visible:ring-v3-heading",
-  ghost:
-    "text-v3-text hover:bg-v3-linen focus-visible:ring-v3-heading",
+  primary: [
+    "bg-v3-heading text-white",
+    "hover:bg-v3-text",
+    "focus-visible:ring-v3-heading",
+    "disabled:bg-v3-stone disabled:text-v3-drift",
+  ].join(" "),
+  secondary: [
+    "bg-v3-moss text-white",
+    "hover:bg-v3-moss/85",
+    "focus-visible:ring-v3-moss",
+    "disabled:bg-v3-stone disabled:text-v3-drift",
+  ].join(" "),
+  outline: [
+    "border border-v3-stone bg-transparent text-v3-text",
+    "hover:border-v3-drift hover:bg-v3-linen",
+    "focus-visible:ring-v3-heading",
+    "disabled:border-v3-stone/60 disabled:text-v3-stone",
+  ].join(" "),
+  ghost: [
+    "bg-transparent text-v3-text",
+    "hover:bg-v3-linen",
+    "focus-visible:ring-v3-heading",
+    "disabled:text-v3-stone",
+  ].join(" "),
 };
 
 const sizeStyles: Record<V3ButtonSize, string> = {
@@ -39,7 +57,10 @@ export function V3Button({
   ...props
 }: V3ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-full font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-v3-snow",
+    "inline-flex items-center justify-center rounded-full font-medium tracking-wide",
+    "transition-colors duration-200 ease-in-out",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-v3-snow",
+    "disabled:pointer-events-none",
     variantStyles[variant],
     sizeStyles[size],
     className
@@ -57,6 +78,7 @@ export function V3Button({
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     "className"
   > & { href?: never };
+
   return (
     <button className={classes} {...buttonProps}>
       {children}

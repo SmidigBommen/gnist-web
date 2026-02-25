@@ -22,7 +22,7 @@ export default function V3HomePage() {
               <br />
               bedre, innenfra.
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-v3-drift">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-v3-drift">
               ~30 erfarne teknologiledere som hjelper med å levere bedre,
               raskere og med mer glede.
             </p>
@@ -48,7 +48,7 @@ export default function V3HomePage() {
       {/* === THREE PILLARS: Clean horizontal === */}
       <section className="bg-v3-snow py-24 md:py-32">
         <Container>
-          <div className="grid gap-0 divide-y divide-v3-stone/30 md:grid-cols-3 md:divide-x md:divide-y-0">
+          <div className="grid gap-0 divide-y divide-v3-stone md:grid-cols-3 md:divide-x md:divide-y-0">
             {[
               { title: "Teknisk ledelse", text: "CTO-er, tech leads og arkitekter som leverer retning og resultater fra dag én." },
               { title: "Smidig utvikling", text: "Coaching og transformasjon tilpasset deres virkelighet — ikke bare et rammeverk." },
@@ -77,13 +77,13 @@ export default function V3HomePage() {
       </section>
 
       {/* === CLIENTS === */}
-      <section className="border-y border-v3-stone/30 bg-v3-paper py-12">
+      <section className="border-y border-v3-stone bg-v3-paper py-12">
         <Container>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
             {clients.map((client) => (
               <span
                 key={client}
-                className="text-sm tracking-wide text-v3-stone transition-colors hover:text-v3-text"
+                className="text-sm tracking-wide text-v3-drift transition-colors hover:text-v3-heading"
               >
                 {client}
               </span>
@@ -96,7 +96,7 @@ export default function V3HomePage() {
       <section className="bg-v3-snow py-28 md:py-36">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <Quote className="mx-auto h-8 w-8 text-v3-stone" />
+            <Quote className="mx-auto h-8 w-8 text-v3-drift" />
             <blockquote className="mt-8 v3-serif text-2xl leading-relaxed text-v3-heading md:text-3xl">
               Gnist-konsulentene har en unik evne til å forstå helheten.
               De leverte ikke bare teknisk kompetanse, men hjalp oss med
@@ -113,7 +113,7 @@ export default function V3HomePage() {
       </section>
 
       {/* === STATS: Minimal === */}
-      <section className="border-y border-v3-stone/30 bg-v3-paper py-16">
+      <section className="border-y border-v3-stone bg-v3-paper py-16">
         <Container>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
@@ -154,7 +154,7 @@ export default function V3HomePage() {
                 href="/v3/folka"
                 className="group flex flex-col items-center gap-3 text-center"
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-v3-stone/50 transition-colors group-hover:border-v3-heading group-hover:bg-v3-linen">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-v3-stone transition-colors group-hover:border-v3-heading group-hover:bg-v3-linen">
                   <ArrowRight className="h-5 w-5 text-v3-drift transition-colors group-hover:text-v3-heading" />
                 </span>
                 <span className="text-sm text-v3-drift transition-colors group-hover:text-v3-heading">
@@ -173,7 +173,7 @@ export default function V3HomePage() {
             <h2 className="v3-serif text-3xl text-v3-heading md:text-4xl">
               Klar for en samtale?
             </h2>
-            <p className="mt-4 text-v3-drift font-light">
+            <p className="mt-4 text-v3-drift">
               Vi starter gjerne med en kaffe — ingen forpliktelser, bare
               ærlig rådgivning.
             </p>

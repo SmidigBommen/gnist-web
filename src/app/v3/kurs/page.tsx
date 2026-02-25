@@ -25,7 +25,7 @@ export default function V3KursPage() {
               <br />
               av praktikere.
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-v3-drift">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-v3-drift">
               Reelle erfaringer fra folk som har stått i det — ikke teori fra en bok.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function V3KursPage() {
             <h2 className="mt-4 v3-serif text-3xl text-v3-heading md:text-4xl">
               Trenger dere noe eget?
             </h2>
-            <p className="mt-4 text-v3-drift font-light">
+            <p className="mt-4 text-v3-drift">
               Vi designer workshops tilpasset deres kontekst og behov.
             </p>
             <V3Button href="/v3/kontakt" variant="secondary" className="mt-10">

@@ -28,7 +28,7 @@ export default function V3TjenesterPage() {
               <br />
               Én tilnærming.
             </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-v3-drift">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-v3-drift">
               Vi hjelper organisasjoner med å levere bedre — alltid tilpasset
               din virkelighet.
             </p>
@@ -52,7 +52,7 @@ export default function V3TjenesterPage() {
       </section>
 
       {/* === PROBLEMS === */}
-      <section className="border-y border-v3-stone/30 bg-v3-paper py-24 md:py-32">
+      <section className="border-y border-v3-stone bg-v3-paper py-24 md:py-32">
         <Container>
           <div className="mx-auto max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-v3-moss">
@@ -80,9 +80,9 @@ export default function V3TjenesterPage() {
             <h2 className="mt-4 v3-serif text-3xl text-v3-heading">
               Hvordan vi jobber
             </h2>
-            <div className="mt-12 grid gap-0 divide-y divide-v3-stone/30 md:grid-cols-2 md:divide-x md:divide-y-0">
+            <div className="mt-12 grid gap-0 divide-y divide-v3-stone md:grid-cols-2 md:divide-x md:divide-y-0">
               {principles.map((p, i) => (
-                <div key={p.title} className={`py-8 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ${i >= 2 ? 'md:border-t md:border-v3-stone/30' : ''}`}>
+                <div key={p.title} className={`py-8 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ${i >= 2 ? 'md:border-t md:border-v3-stone' : ''}`}>
                   <h3 className="text-base font-medium text-v3-heading">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-v3-drift">
                     {p.description}
@@ -99,14 +99,14 @@ export default function V3TjenesterPage() {
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="v3-serif text-3xl text-v3-heading">La oss snakkes</h2>
-            <p className="mt-4 text-v3-drift font-light">
+            <p className="mt-4 text-v3-drift">
               Fortell oss om utfordringene dine — vi starter med en god samtale.
             </p>
             <div className="mt-10 flex items-center justify-center gap-6">
               <V3Button href="/v3/kontakt" size="lg">
                 Ta kontakt
               </V3Button>
-              <span className="hidden text-v3-stone md:inline">|</span>
+              <span className="hidden text-v3-drift md:inline">|</span>
               <a
                 href="/v3/folka"
                 className="hidden items-center gap-1 text-sm text-v3-drift transition-colors hover:text-v3-heading md:inline-flex"

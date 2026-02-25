@@ -1,10 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { V3Button } from "@/components/v3/ui/v3-button";
 
+const inputClasses = cn(
+  "mt-2 block w-full border-0 border-b border-v3-stone bg-transparent",
+  "px-0 py-3 text-base text-v3-heading",
+  "placeholder:text-v3-stone",
+  "focus:border-v3-heading focus:outline-none focus:ring-0",
+  "transition-colors duration-200"
+);
+
+const labelClasses =
+  "block text-xs font-medium uppercase tracking-widest text-v3-drift";
+
 export function V3ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -18,8 +32,12 @@ export function V3ContactForm() {
     const company = data.get("company");
     const message = data.get("message");
 
-    const subject = encodeURIComponent(`Henvendelse fra ${name}${company ? ` (${company})` : ""}`);
-    const body = encodeURIComponent(`Fra: ${name}\nE-post: ${email}\nSelskap: ${company || "–"}\n\n${message}`);
+    const subject = encodeURIComponent(
+      `Henvendelse fra ${name}${company ? ` (${company})` : ""}`
+    );
+    const body = encodeURIComponent(
+      `Fra: ${name}\nE-post: ${email}\nSelskap: ${company || "\u2013"}\n\n${message}`
+    );
     window.location.href = `mailto:post@gnist.as?subject=${subject}&body=${body}`;
     setStatus("sent");
     form.reset();
@@ -27,20 +45,19 @@ export function V3ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="border border-v3-moss/30 bg-v3-moss-light p-10 text-center">
+      <div className="border border-v3-moss bg-v3-moss-light p-10 text-center">
         <p className="v3-serif text-2xl text-v3-heading">Takk!</p>
-        <p className="mt-2 text-sm text-v3-drift">Vi svarer deg så snart vi kan.</p>
+        <p className="mt-2 text-sm text-v3-drift">
+          Vi svarer deg så snart vi kan.
+        </p>
       </div>
     );
   }
 
-  const inputClasses =
-    "mt-1 block w-full border-b border-v3-stone/50 bg-transparent px-0 py-3 text-v3-text placeholder:text-v3-stone focus:border-v3-heading focus:outline-none transition-colors duration-300";
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-10">
       <div>
-        <label htmlFor="v3-name" className="text-xs font-medium uppercase tracking-widest text-v3-drift">
+        <label htmlFor="v3-name" className={labelClasses}>
           Navn *
         </label>
         <input
@@ -54,7 +71,7 @@ export function V3ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="v3-email" className="text-xs font-medium uppercase tracking-widest text-v3-drift">
+        <label htmlFor="v3-email" className={labelClasses}>
           E-post *
         </label>
         <input
@@ -68,7 +85,7 @@ export function V3ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="v3-company" className="text-xs font-medium uppercase tracking-widest text-v3-drift">
+        <label htmlFor="v3-company" className={labelClasses}>
           Selskap
         </label>
         <input
@@ -81,7 +98,7 @@ export function V3ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="v3-message" className="text-xs font-medium uppercase tracking-widest text-v3-drift">
+        <label htmlFor="v3-message" className={labelClasses}>
           Melding *
         </label>
         <textarea
@@ -89,18 +106,18 @@ export function V3ContactForm() {
           name="message"
           required
           rows={4}
-          className={`${inputClasses} resize-none`}
+          className={cn(inputClasses, "resize-none")}
           placeholder="Fortell oss litt om hva dere trenger..."
         />
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-v3-clay">
+        <p className="text-sm font-medium text-v3-clay">
           Noe gikk galt. Send e-post direkte til post@gnist.as.
         </p>
       )}
 
-      <V3Button type="submit" disabled={status === "sending"}>
+      <V3Button type="submit" size="lg" disabled={status === "sending"}>
         {status === "sending" ? "Sender..." : "Send melding"}
       </V3Button>
     </form>
