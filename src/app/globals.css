@@ -17,18 +17,34 @@
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* V2 Dark Theme */
-  --color-v2-void: #0A0A0F;
-  --color-v2-surface: #12121A;
-  --color-v2-surface-alt: #1A1A25;
-  --color-v2-border: #2A2A3A;
-  --color-v2-muted: #6B6B80;
+  /* V2 Dark Theme – dark navy/slate */
+  --color-v2-void: #151520;
+  --color-v2-surface: #1C1C2A;
+  --color-v2-surface-alt: #242435;
+  --color-v2-border: #33334A;
+  --color-v2-muted: #787890;
   --color-v2-text: #E8E8F0;
   --color-v2-heading: #FFFFFF;
   --color-v2-cyan: #00D4FF;
   --color-v2-cyan-dark: #00A8CC;
   --color-v2-success: #00FF88;
   --color-v2-purple: #8B5CF6;
+
+  /* V3 Nordic Minimal */
+  --color-v3-snow: #FAFAF8;
+  --color-v3-paper: #F5F4F0;
+  --color-v3-linen: #EDEBE5;
+  --color-v3-stone: #D4D0C8;
+  --color-v3-drift: #A8A295;
+  --color-v3-text: #3D3B37;
+  --color-v3-heading: #1A1917;
+  --color-v3-moss: #5C7C5E;
+  --color-v3-moss-light: #E8F0E8;
+  --color-v3-sand: #C4A97D;
+  --color-v3-sand-light: #F5EFE3;
+  --color-v3-clay: #A0695C;
+  --color-v3-clay-light: #F3EAE6;
+  --color-v3-slate: #5A6872;
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
@@ -111,6 +127,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* V2 dot grid background */
 .v2-dot-grid {
-  background-image: radial-gradient(circle, #2A2A3A 1px, transparent 1px);
+  background-image: radial-gradient(circle, #33334A 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* V3 Nordic Minimal styles */
+.v3-thin-rule {
+  height: 1px;
+  background-color: var(--color-v3-stone);
+}
+
+.v3-serif {
+  font-family: "DM Serif Display", serif;
 }

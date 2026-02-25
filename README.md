@@ -51,16 +51,29 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### V2 – Dark Tech Theme
 
-An alternative "Nordic Tech" design at `/v2` for A/B testing. Dark backgrounds, cyan accents, sharp edges, monospace labels.
+Dark navy backgrounds, cyan/purple/green accents, sharp edges, monospace labels, bold layouts.
 
 | Page | Route | Description |
 |------|-------|-------------|
-| Hjem | `/v2` | Dark landing page with dot-grid hero |
-| Om Gnist | `/v2/om-gnist` | Company story, values |
-| Tjenester | `/v2/tjenester` | Services, problems, principles |
-| Folka | `/v2/folka` | Team member grid |
-| Kurs | `/v2/kurs` | Courses and workshops |
-| Kontakt | `/v2/kontakt` | Contact form and info |
+| Hjem | `/v2` | Terminal hero, bento grid, marquee ticker, stats bar |
+| Om Gnist | `/v2/om-gnist` | Manifesto hero, alternating timeline, numbered values |
+| Tjenester | `/v2/tjenester` | Color-coded service showcases with big numbers |
+| Folka | `/v2/folka` | Staggered alternating cards, split name typography |
+| Kurs | `/v2/kurs` | Featured course hero, catalog rows |
+| Kontakt | `/v2/kontakt` | Dramatic hero, horizontal contact strip, sticky sidebar |
+
+### V3 – Nordic Minimal
+
+Whitespace-heavy, muted earth tones (moss, stone, sand), thin hairlines, serif accent headings, Scandinavian calm.
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Hjem | `/v3` | Editorial hero, divided pillars, pull quote, stats |
+| Om Gnist | `/v3/om-gnist` | Two-column story, definition-list values |
+| Tjenester | `/v3/tjenester` | Accordion services, plus/minus problems |
+| Folka | `/v3/folka` | Clean divided list with circular initials |
+| Kurs | `/v3/kurs` | Bordered course cards with badges |
+| Kontakt | `/v3/kontakt` | Underline-only form inputs, minimal layout |
 
 ## Project Structure
 
@@ -68,7 +81,8 @@ An alternative "Nordic Tech" design at `/v2` for A/B testing. Dark backgrounds, 
 src/
   app/
     (v1)/       # V1 pages (warm theme) – route group, no URL prefix
-    v2/         # V2 pages (dark theme) – lives at /v2/*
+    v2/         # V2 pages (dark tech) – lives at /v2/*
+    v3/         # V3 pages (nordic minimal) – lives at /v3/*
   components/
     ui/         # V1 design system primitives (Button, Card, Badge, etc.)
     layout/     # V1 Header, Footer, PageHero
@@ -77,7 +91,11 @@ src/
       ui/       # V2 primitives (V2Button, V2Card, V2Badge, etc.)
       layout/   # V2Header, V2Footer, V2PageHero
       blocks/   # V2 domain components
-  data/         # Static content as typed TypeScript files (shared by v1 & v2)
+    v3/
+      ui/       # V3 primitives (V3Button, V3Card, V3Badge, etc.)
+      layout/   # V3Header, V3Footer
+      blocks/   # V3 domain components
+  data/         # Static content as typed TypeScript files (shared by all versions)
   lib/          # Utilities (cn helper, metadata factory)
 ```
 
@@ -93,12 +111,21 @@ The design uses a warm, fire-inspired color palette ("Gnist" means "Spark" in No
 
 ### V2 – Dark Tech Theme
 
-A high-contrast dark theme with a cool, technical aesthetic:
+A dark theme with a cool, technical aesthetic:
 
-- **Primary**: Cyan `#00D4FF` with secondary Purple `#8B5CF6`
+- **Primary**: Cyan `#00D4FF` with secondary Purple `#8B5CF6` and Green `#00FF88`
 - **Typography**: Inter (sans-serif) everywhere, JetBrains Mono for labels/badges
-- **Background**: Near-black `#0A0A0F` with surface `#12121A` for cards
-- **Style**: Sharp corners, border-based cards, dot-grid patterns
+- **Background**: Dark navy `#151520` with surface `#1C1C2A` for cards
+- **Style**: Sharp corners, border-based cards, dot-grid patterns, gradient text
+
+### V3 – Nordic Minimal
+
+A calm, whitespace-heavy Scandinavian aesthetic:
+
+- **Primary**: Moss `#5C7C5E` with Sand `#C4A97D` and Clay `#A0695C`
+- **Typography**: DM Serif Display for accent headings, Inter light for body
+- **Background**: Snow `#FAFAF8` with Paper `#F5F4F0` and Linen `#EDEBE5`
+- **Style**: Thin hairline borders, rounded pill buttons, lots of negative space
 
 All content is in Norwegian (Bokmål). The site uses `lang="nb"` on the HTML element.
 
