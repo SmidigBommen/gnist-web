@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import type { TeamMember } from "@/data/team";
 import { User } from "lucide-react";
 
@@ -15,14 +14,6 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
       <h3 className="font-heading text-lg text-charcoal">{member.name}</h3>
       <p className="mt-1 text-sm font-medium text-ember">{member.role}</p>
-      <p className="mt-3 text-sm leading-relaxed text-warm-gray">
-        {member.bio}
-      </p>
-      <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {member.specialties.map((s) => (
-          <Badge key={s}>{s}</Badge>
-        ))}
-      </div>
     </Card>
   );
 }
