@@ -16,6 +16,19 @@
   --font-heading: "DM Serif Display", serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  /* V2 Dark Theme */
+  --color-v2-void: #0A0A0F;
+  --color-v2-surface: #12121A;
+  --color-v2-surface-alt: #1A1A25;
+  --color-v2-border: #2A2A3A;
+  --color-v2-muted: #6B6B80;
+  --color-v2-text: #E8E8F0;
+  --color-v2-heading: #FFFFFF;
+  --color-v2-cyan: #00D4FF;
+  --color-v2-cyan-dark: #00A8CC;
+  --color-v2-success: #00FF88;
+  --color-v2-purple: #8B5CF6;
 }
 
 body {
