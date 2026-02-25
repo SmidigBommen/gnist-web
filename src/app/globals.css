@@ -29,6 +29,9 @@
   --color-v2-cyan-dark: #00A8CC;
   --color-v2-success: #00FF88;
   --color-v2-purple: #8B5CF6;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
 }
 
 body {
@@ -39,4 +42,75 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+/* V2 gradient text */
+.v2-gradient-text {
+  background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 50%, #00FF88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.v2-gradient-text-cyan {
+  background: linear-gradient(90deg, #00D4FF 0%, #00FF88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* V2 glow */
+.v2-glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.05);
+}
+
+.v2-glow-strong {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25), 0 0 80px rgba(0, 212, 255, 0.1);
+}
+
+/* V2 marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* V2 scanline overlay */
+.v2-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 212, 255, 0.015) 2px,
+    rgba(0, 212, 255, 0.015) 4px
+  );
+}
+
+/* V2 noise texture */
+.v2-noise {
+  position: relative;
+}
+.v2-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 256px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* V2 border gradient */
+.v2-border-gradient {
+  border-image: linear-gradient(135deg, #00D4FF, #8B5CF6) 1;
+}
+
+/* V2 dot grid background */
+.v2-dot-grid {
+  background-image: radial-gradient(circle, #2A2A3A 1px, transparent 1px);
+  background-size: 24px 24px;
 }

@@ -1,192 +1,284 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { V2Section } from "@/components/v2/ui/v2-section";
-import { V2Heading } from "@/components/v2/ui/v2-heading";
-import { V2Text } from "@/components/v2/ui/v2-text";
 import { V2Button } from "@/components/v2/ui/v2-button";
-import { V2Card } from "@/components/v2/ui/v2-card";
-import { Compass, Repeat, Rocket, Quote } from "lucide-react";
+import { ArrowRight, Terminal, Zap, Code2, Users, GitBranch, Cpu } from "lucide-react";
 
-const pillars = [
-  {
-    icon: Compass,
-    title: "Teknisk ledelse",
-    description:
-      "Erfarne CTO-er, tech leads og arkitekter som gir retning og bygger kultur fra dag én.",
-    href: "/v2/tjenester#teknisk-ledelse",
-  },
-  {
-    icon: Repeat,
-    title: "Smidig utvikling",
-    description:
-      "Coaching og transformasjon som gjør team genuint smidige – tilpasset deres virkelighet.",
-    href: "/v2/tjenester#smidig-utvikling",
-  },
-  {
-    icon: Rocket,
-    title: "Produktutvikling",
-    description:
-      "Fra strategi til leveranse – vi hjelper med hele verdikjeden i produktutvikling.",
-    href: "/v2/tjenester#produktutvikling",
-  },
+const stats = [
+  { value: "~30", label: "konsulenter", icon: Users },
+  { value: "15+", label: "års erfaring snitt", icon: GitBranch },
+  { value: "50+", label: "fornøyde kunder", icon: Zap },
+  { value: "∞", label: "kopper kaffe", icon: Cpu },
 ];
 
 const clients = [
-  "NRK",
-  "DNB",
-  "Posten",
-  "Vy",
-  "NAV",
-  "Storebrand",
-  "Finn.no",
-  "Schibsted",
+  "NRK", "DNB", "Posten", "Vy", "NAV", "Storebrand", "Finn.no", "Schibsted",
+  "NRK", "DNB", "Posten", "Vy", "NAV", "Storebrand", "Finn.no", "Schibsted",
 ];
 
-const testimonials = [
+const services = [
   {
-    quote:
-      "Gnist-konsulentene har en unik evne til å forstå helheten. De leverte ikke bare teknisk kompetanse, men hjalp oss med å bygge en kultur for kontinuerlig forbedring.",
-    author: "Teknologidirektør",
-    company: "Stor norsk mediebedrift",
+    num: "01",
+    title: "Teknisk ledelse",
+    blurb: "CTO-er og arkitekter som leverer fra dag én",
+    href: "/v2/tjenester#teknisk-ledelse",
+    color: "text-v2-cyan",
+    borderColor: "border-v2-cyan/30",
+    bgColor: "bg-v2-cyan/5",
   },
   {
-    quote:
-      "Vi trengte noen som kunne ta teknisk lederskap fra dag én. Gnist leverte over all forventning – og teamet vårt ble merkbart bedre.",
-    author: "VP Engineering",
-    company: "Norsk fintech-selskap",
+    num: "02",
+    title: "Smidig utvikling",
+    blurb: "Coaching som gjør team genuint smidige",
+    href: "/v2/tjenester#smidig-utvikling",
+    color: "text-v2-purple",
+    borderColor: "border-v2-purple/30",
+    bgColor: "bg-v2-purple/5",
+  },
+  {
+    num: "03",
+    title: "Produktutvikling",
+    blurb: "Fra strategi til kode til produksjon",
+    href: "/v2/tjenester#produktutvikling",
+    color: "text-v2-success",
+    borderColor: "border-v2-success/30",
+    bgColor: "bg-v2-success/5",
   },
 ];
 
 export default function V2HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-v2-void">
+      {/* === HERO: Terminal-inspired === */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-v2-void">
+        {/* Dot grid */}
+        <div className="absolute inset-0 v2-dot-grid opacity-20" />
+        {/* Gradient orb */}
         <div
-          className="absolute inset-0 -z-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle, #2A2A3A 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
+          className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full opacity-20 blur-[120px]"
+          style={{ background: "radial-gradient(circle, #00D4FF, #8B5CF6, transparent)" }}
         />
         <Container>
-          <div className="relative max-w-3xl">
-            <V2Heading as="h1">
-              Smidig i praksis
-            </V2Heading>
-            <V2Text variant="large" className="mt-6">
-              Vi er ~30 teknologiledere som hjelper organisasjoner med å levere
-              bedre, raskere og med mer glede. Gjennom teknisk ledelse, smidig
-              coaching og produktutvikling.
-            </V2Text>
-            <div className="mt-8 flex flex-wrap gap-4">
+          <div className="relative">
+            {/* Terminal prompt */}
+            <div className="mb-8 inline-flex items-center gap-2 border border-v2-border bg-v2-surface px-4 py-2 font-mono text-sm">
+              <Terminal className="h-4 w-4 text-v2-cyan" />
+              <span className="text-v2-muted">gnist@consulting</span>
+              <span className="text-v2-cyan">~</span>
+              <span className="text-v2-text">$ cat mission.txt</span>
+            </div>
+
+            <h1 className="max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
+              <span className="text-v2-heading">Vi gjør tech-team </span>
+              <span className="v2-gradient-text">ekstraordinære</span>
+            </h1>
+
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-v2-muted md:text-xl">
+              ~30 erfarne teknologiledere. Én misjon: hjelpe organisasjoner
+              med å bygge bedre, levere raskere, og trives mer.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <V2Button href="/v2/kontakt" size="lg">
-                Ta kontakt
+                Start samtalen
               </V2Button>
-              <V2Button href="/v2/tjenester" variant="outline" size="lg">
-                Våre tjenester
-              </V2Button>
+              <Link
+                href="/v2/tjenester"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-v2-muted transition-colors hover:text-v2-cyan"
+              >
+                Se hva vi gjør
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Competence pillars */}
-      <V2Section variant="surface">
+      {/* === STATS BAR === */}
+      <section className="border-y border-v2-border bg-v2-surface">
         <Container>
-          <div className="text-center">
-            <V2Heading as="h2">Tre pilarer av kompetanse</V2Heading>
-            <V2Text variant="muted" className="mx-auto mt-4 max-w-2xl">
-              Vi kombinerer dyp teknisk kompetanse med menneskeforståelse for å
-              skape varig endring.
-            </V2Text>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {pillars.map((pillar) => (
-              <V2Card key={pillar.title} hover>
-                <div className="flex h-12 w-12 items-center justify-center border border-v2-cyan/20 bg-v2-cyan/5">
-                  <pillar.icon className="h-6 w-6 text-v2-cyan" />
-                </div>
-                <h3 className="mt-4 font-body text-xl font-semibold text-v2-heading">
-                  {pillar.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-v2-muted">
-                  {pillar.description}
-                </p>
-                <V2Button
-                  href={pillar.href}
-                  variant="ghost"
-                  size="sm"
-                  className="mt-4 -ml-4"
-                >
-                  Les mer →
-                </V2Button>
-              </V2Card>
+          <div className="grid grid-cols-2 divide-x divide-v2-border md:grid-cols-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center py-10 text-center">
+                <stat.icon className="mb-3 h-5 w-5 text-v2-cyan/60" />
+                <span className="font-mono text-3xl font-bold text-v2-heading md:text-4xl">
+                  {stat.value}
+                </span>
+                <span className="mt-1 font-mono text-xs uppercase tracking-widest text-v2-muted">
+                  {stat.label}
+                </span>
+              </div>
             ))}
           </div>
         </Container>
-      </V2Section>
+      </section>
 
-      {/* Client logo strip */}
-      <V2Section variant="void">
+      {/* === SERVICES: Numbered Horizontal Cards === */}
+      <section className="bg-v2-void py-24 md:py-32">
         <Container>
-          <V2Text variant="muted" className="text-center font-mono text-xs uppercase tracking-widest">
-            Vi har hjulpet blant andre
-          </V2Text>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {clients.map((client) => (
-              <span
-                key={client}
-                className="text-lg font-medium text-v2-border transition-colors hover:text-v2-text"
-              >
-                {client}
+          <div className="flex items-end justify-between">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-v2-cyan">
+                Tjenester
               </span>
-            ))}
+              <h2 className="mt-3 text-3xl font-bold text-v2-heading md:text-5xl">
+                Tre spor,<br />ett mål
+              </h2>
+            </div>
+            <Link
+              href="/v2/tjenester"
+              className="hidden items-center gap-2 text-sm font-medium text-v2-muted transition-colors hover:text-v2-cyan md:inline-flex"
+            >
+              Alle tjenester <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-        </Container>
-      </V2Section>
 
-      {/* Testimonials */}
-      <V2Section variant="surface">
-        <Container>
-          <V2Heading as="h2" className="text-center">
-            Hva kundene sier
-          </V2Heading>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {testimonials.map((t, i) => (
-              <V2Card key={i}>
-                <Quote className="h-8 w-8 text-v2-cyan/40" />
-                <blockquote className="mt-4 text-base leading-relaxed text-v2-text italic">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div className="mt-6 border-t border-v2-border pt-4">
-                  <p className="text-sm font-medium text-v2-heading">
-                    {t.author}
-                  </p>
-                  <p className="text-sm text-v2-muted">{t.company}</p>
+          <div className="mt-12 space-y-4">
+            {services.map((s) => (
+              <Link
+                key={s.num}
+                href={s.href}
+                className={`group flex items-center gap-6 border ${s.borderColor} ${s.bgColor} p-6 transition-all hover:border-opacity-60 md:gap-10 md:p-8`}
+              >
+                <span className={`font-mono text-4xl font-bold ${s.color} opacity-40 md:text-6xl`}>
+                  {s.num}
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-v2-heading md:text-2xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-v2-muted md:text-base">{s.blurb}</p>
                 </div>
-              </V2Card>
+                <ArrowRight className={`h-5 w-5 ${s.color} opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1`} />
+              </Link>
             ))}
           </div>
-        </Container>
-      </V2Section>
 
-      {/* CTA */}
-      <V2Section variant="surface-alt">
+          <Link
+            href="/v2/tjenester"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-v2-muted transition-colors hover:text-v2-cyan md:hidden"
+          >
+            Alle tjenester <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Container>
+      </section>
+
+      {/* === MARQUEE: Client ticker === */}
+      <section className="overflow-hidden border-y border-v2-border bg-v2-surface py-6">
+        <div className="flex animate-marquee items-center whitespace-nowrap">
+          {clients.map((client, i) => (
+            <span
+              key={`${client}-${i}`}
+              className="mx-8 font-mono text-sm uppercase tracking-widest text-v2-border md:mx-12 md:text-base"
+            >
+              {client}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* === BENTO GRID === */}
+      <section className="bg-v2-void py-24 md:py-32">
         <Container>
-          <div className="text-center">
-            <V2Heading as="h2">
-              Klar for en uforpliktende prat?
-            </V2Heading>
-            <V2Text className="mx-auto mt-4 max-w-2xl text-v2-muted">
-              Vi starter gjerne med en kaffe og en god samtale om utfordringene
-              dine. Ingen forpliktelser – bare ærlig rådgivning.
-            </V2Text>
-            <V2Button href="/v2/kontakt" size="lg" className="mt-8">
+          <span className="font-mono text-xs uppercase tracking-widest text-v2-cyan">
+            Hvorfor Gnist
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-v2-heading md:text-5xl">
+            Bygget for å levere
+          </h2>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-3 md:grid-rows-2">
+            {/* Big testimonial cell */}
+            <div className="relative overflow-hidden border border-v2-border bg-v2-surface p-8 md:col-span-2 md:row-span-2 md:p-12">
+              <div className="absolute right-6 top-6 font-mono text-8xl font-bold leading-none text-v2-border/30">
+                &ldquo;
+              </div>
+              <div className="relative">
+                <Code2 className="mb-6 h-8 w-8 text-v2-cyan" />
+                <blockquote className="text-xl leading-relaxed text-v2-text md:text-2xl">
+                  Gnist-konsulentene har en unik evne til å forstå helheten.
+                  De leverte ikke bare teknisk kompetanse, men hjalp oss med
+                  å bygge en kultur for kontinuerlig forbedring.
+                </blockquote>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="h-px flex-1 bg-v2-border" />
+                  <div className="text-right">
+                    <p className="text-sm font-medium text-v2-heading">Teknologidirektør</p>
+                    <p className="text-sm text-v2-muted">Stor norsk mediebedrift</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Approach cell */}
+            <div className="border border-v2-purple/20 bg-v2-purple/5 p-8">
+              <span className="font-mono text-xs uppercase tracking-widest text-v2-purple">Tilnærming</span>
+              <h3 className="mt-4 text-lg font-bold text-v2-heading">
+                Mennesker &gt; prosesser
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-v2-muted">
+                Teknologi er et verktøy. Det er menneskene som bruker det som
+                skaper verdien. Vi starter alltid med å forstå menneskene.
+              </p>
+            </div>
+
+            {/* Second testimonial cell */}
+            <div className="border border-v2-border bg-v2-surface p-8">
+              <blockquote className="text-sm leading-relaxed text-v2-text italic">
+                &ldquo;Vi trengte noen som kunne ta teknisk lederskap fra dag én.
+                Gnist leverte over all forventning.&rdquo;
+              </blockquote>
+              <p className="mt-4 font-mono text-xs text-v2-muted">
+                — VP Engineering, Norsk fintech
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* === TEAM TEASER === */}
+      <section className="border-y border-v2-border bg-v2-surface-alt py-24 md:py-32">
+        <Container>
+          <div className="flex flex-col items-center text-center">
+            <span className="font-mono text-xs uppercase tracking-widest text-v2-cyan">Folka</span>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold text-v2-heading md:text-5xl">
+              ~30 teknologiledere<br />
+              <span className="v2-gradient-text-cyan">under ett tak</span>
+            </h2>
+            <p className="mt-6 max-w-xl text-v2-muted">
+              CTO-er, tech leads, smidige coacher, produktledere og arkitekter —
+              folk som har stått i det og vet hva som fungerer.
+            </p>
+            <V2Button href="/v2/folka" variant="outline" className="mt-8">
+              Møt teamet
+            </V2Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* === CTA: Full-width dramatic === */}
+      <section className="relative overflow-hidden bg-v2-void py-32 md:py-40">
+        {/* Background glow */}
+        <div
+          className="absolute left-1/2 top-1/2 h-[400px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-[100px]"
+          style={{ background: "linear-gradient(90deg, #00D4FF, #8B5CF6)" }}
+        />
+        <Container>
+          <div className="relative text-center">
+            <h2 className="text-4xl font-bold text-v2-heading md:text-6xl lg:text-7xl">
+              Klar for å
+              <br />
+              <span className="v2-gradient-text">levere bedre?</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-lg text-v2-muted">
+              Ingen pitch-deck, ingen PowerPoint. Bare en ærlig samtale over en
+              kopp kaffe.
+            </p>
+            <V2Button href="/v2/kontakt" size="lg" className="mt-10">
               Kontakt oss
             </V2Button>
           </div>
         </Container>
-      </V2Section>
+      </section>
     </>
   );
 }
