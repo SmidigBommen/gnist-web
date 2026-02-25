@@ -4,6 +4,8 @@ Corporate website for [Gnist Consulting AS](https://gnist.as), a Norwegian IT co
 
 Built with Next.js 16, Tailwind CSS v4, and TypeScript.
 
+**Live site:** [https://smidigbommen.github.io/gnist-web/](https://smidigbommen.github.io/gnist-web/)
+
 ## Getting Started
 
 ```bash
@@ -70,14 +72,9 @@ All content is in Norwegian (Bokmål). The site uses `lang="nb"` on the HTML ele
 
 ## Deployment
 
-The site is fully static (except the contact form API route) and can be deployed to any platform that supports Next.js:
+The site is fully static and deployed automatically to GitHub Pages on every push to `main` via GitHub Actions.
 
-```bash
-npm run build
-npm run start
-```
-
-See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for platform-specific guides.
+**Live site:** [https://smidigbommen.github.io/gnist-web/](https://smidigbommen.github.io/gnist-web/)
 
 ## License
 
