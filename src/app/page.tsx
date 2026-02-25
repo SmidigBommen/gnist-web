@@ -1,65 +1,193 @@
-import Image from "next/image";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { Heading } from "@/components/ui/heading";
+import { Text } from "@/components/ui/text";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Compass, Repeat, Rocket, Quote } from "lucide-react";
 
-export default function Home() {
+const pillars = [
+  {
+    icon: Compass,
+    title: "Teknisk ledelse",
+    description:
+      "Erfarne CTO-er, tech leads og arkitekter som gir retning og bygger kultur fra dag én.",
+    href: "/tjenester#teknisk-ledelse",
+  },
+  {
+    icon: Repeat,
+    title: "Smidig utvikling",
+    description:
+      "Coaching og transformasjon som gjør team genuint smidige – tilpasset deres virkelighet.",
+    href: "/tjenester#smidig-utvikling",
+  },
+  {
+    icon: Rocket,
+    title: "Produktutvikling",
+    description:
+      "Fra strategi til leveranse – vi hjelper med hele verdikjeden i produktutvikling.",
+    href: "/tjenester#produktutvikling",
+  },
+];
+
+const clients = [
+  "NRK",
+  "DNB",
+  "Posten",
+  "Vy",
+  "NAV",
+  "Storebrand",
+  "Finn.no",
+  "Schibsted",
+];
+
+const testimonials = [
+  {
+    quote:
+      "Gnist-konsulentene har en unik evne til å forstå helheten. De leverte ikke bare teknisk kompetanse, men hjalp oss med å bygge en kultur for kontinuerlig forbedring.",
+    author: "Teknologidirektør",
+    company: "Stor norsk mediebedrift",
+  },
+  {
+    quote:
+      "Vi trengte noen som kunne ta teknisk lederskap fra dag én. Gnist leverte over all forventning – og teamet vårt ble merkbart bedre.",
+    author: "VP Engineering",
+    company: "Norsk fintech-selskap",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(135deg, #D4622B 0%, #F0A06A 40%, #FAF7F4 80%)",
+            opacity: 0.08,
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <Container>
+          <div className="max-w-3xl">
+            <Heading as="h1">
+              Smidig i praksis
+            </Heading>
+            <Text variant="large" className="mt-6">
+              Vi er ~30 teknologiledere som hjelper organisasjoner med å levere
+              bedre, raskere og med mer glede. Gjennom teknisk ledelse, smidig
+              coaching og produktutvikling.
+            </Text>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="/kontakt" size="lg">
+                Ta kontakt
+              </Button>
+              <Button href="/tjenester" variant="outline" size="lg">
+                Våre tjenester
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Competence pillars */}
+      <Section variant="cream">
+        <Container>
+          <div className="text-center">
+            <Heading as="h2">Tre pilarer av kompetanse</Heading>
+            <Text variant="secondary" className="mx-auto mt-4 max-w-2xl">
+              Vi kombinerer dyp teknisk kompetanse med menneskeforståelse for å
+              skape varig endring.
+            </Text>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {pillars.map((pillar) => (
+              <Card key={pillar.title} hover>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-glow/20">
+                  <pillar.icon className="h-6 w-6 text-ember" />
+                </div>
+                <h3 className="mt-4 font-heading text-xl text-charcoal">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-warm-gray">
+                  {pillar.description}
+                </p>
+                <Button
+                  href={pillar.href}
+                  variant="ghost"
+                  size="sm"
+                  className="mt-4 -ml-4"
+                >
+                  Les mer →
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Client logo strip */}
+      <Section>
+        <Container>
+          <Text variant="secondary" className="text-center text-sm uppercase tracking-wider">
+            Vi har hjulpet blant andre
+          </Text>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+            {clients.map((client) => (
+              <span
+                key={client}
+                className="text-lg font-medium text-ash transition-colors hover:text-charcoal"
+              >
+                {client}
+              </span>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Testimonials */}
+      <Section variant="cream">
+        <Container>
+          <Heading as="h2" className="text-center">
+            Hva kundene sier
+          </Heading>
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {testimonials.map((t, i) => (
+              <Card key={i}>
+                <Quote className="h-8 w-8 text-glow" />
+                <blockquote className="mt-4 text-base leading-relaxed text-charcoal italic">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="mt-6 border-t border-ash/20 pt-4">
+                  <p className="text-sm font-medium text-charcoal">
+                    {t.author}
+                  </p>
+                  <p className="text-sm text-warm-gray">{t.company}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* CTA */}
+      <Section variant="charcoal">
+        <Container>
+          <div className="text-center">
+            <Heading as="h2" className="text-warm-white">
+              Klar for en uforpliktende prat?
+            </Heading>
+            <Text className="mx-auto mt-4 max-w-2xl text-ash">
+              Vi starter gjerne med en kaffe og en god samtale om utfordringene
+              dine. Ingen forpliktelser – bare ærlig rådgivning.
+            </Text>
+            <Button href="/kontakt" size="lg" className="mt-8">
+              Kontakt oss
+            </Button>
+          </div>
+        </Container>
+      </Section>
+    </>
   );
 }

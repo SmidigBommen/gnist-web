@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gnist Consulting – Website
+
+Corporate website for [Gnist Consulting AS](https://gnist.as), a Norwegian IT consultancy specializing in technology leadership, agile coaching, and product development.
+
+Built with Next.js 16, Tailwind CSS v4, and TypeScript.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (Turbopack) |
+| `npm run build` | Create production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 16** – App Router, React Server Components, static generation
+- **Tailwind CSS v4** – Utility-first styling with custom warm color palette
+- **TypeScript** – Full type safety across components and data
+- **lucide-react** – Icon library
+- **clsx + tailwind-merge** – Conditional class merging
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Page | Route | Description |
+|------|-------|-------------|
+| Hjem | `/` | Landing page with hero, competence pillars, testimonials |
+| Om Gnist | `/om-gnist` | Company story, values, social responsibility |
+| Tjenester | `/tjenester` | Services, problem-solution cards, principles |
+| Folka | `/folka` | Team member grid |
+| Kurs | `/kurs` | Courses and workshops |
+| Kontakt | `/kontakt` | Contact form and company info |
+| Artikler | `/artikler` | Blog listing |
+| Artikkel | `/artikler/[slug]` | Individual article |
+| Åpenhetsloven | `/apenhetsloven` | Transparency Act statement |
+| Personvern | `/personvern` | Privacy policy |
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/          # Pages and API routes (Next.js App Router)
+  components/
+    ui/         # Design system primitives (Button, Card, Badge, etc.)
+    layout/     # Header, Footer, PageHero
+    blocks/     # Domain components (TeamMemberCard, ServiceCard, etc.)
+  data/         # Static content as typed TypeScript files
+  lib/          # Utilities (cn helper, metadata factory)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design
+
+The design uses a warm, fire-inspired color palette ("Gnist" means "Spark" in Norwegian):
+
+- **Primary**: Ember `#D4622B` with Deep Ember `#A8461A` for hover states
+- **Typography**: DM Serif Display for headings, Inter for body text
+- **Background**: Warm White `#FAF7F4` with Cream `#F2ECE5` for alternating sections
+
+All content is in Norwegian (Bokmål). The site uses `lang="nb"` on the HTML element.
+
+## Deployment
+
+The site is fully static (except the contact form API route) and can be deployed to any platform that supports Next.js:
+
+```bash
+npm run build
+npm run start
+```
+
+See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for platform-specific guides.
+
+## License
+
+Private – Gnist Consulting AS
