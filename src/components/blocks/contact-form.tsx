@@ -15,27 +15,18 @@ export function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          company: data.get("company"),
-          message: data.get("message"),
-        }),
-      });
+    // Static site – open mailto as fallback
+    // TODO: Replace with external form service (e.g. Formspree, Resend)
+    const name = data.get("name");
+    const email = data.get("email");
+    const company = data.get("company");
+    const message = data.get("message");
 
-      if (res.ok) {
-        setStatus("sent");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const subject = encodeURIComponent(`Henvendelse fra ${name}${company ? ` (${company})` : ""}`);
+    const body = encodeURIComponent(`Fra: ${name}\nE-post: ${email}\nSelskap: ${company || "–"}\n\n${message}`);
+    window.location.href = `mailto:post@gnist.as?subject=${subject}&body=${body}`;
+    setStatus("sent");
+    form.reset();
   }
 
   if (status === "sent") {
